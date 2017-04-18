@@ -1,5 +1,6 @@
 # Q2A-Closed-Site-Plugin
 Closed Site Plugin is a plugin to allow for for locking the site to only logged users only.
+
 FEATURES OF THE BLOG POST PLUGIN
 1. Show background image which you can change easily
 2. Customize your homepage.
