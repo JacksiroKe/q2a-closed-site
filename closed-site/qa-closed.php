@@ -1,7 +1,7 @@
 <?php
 /*
 	Plugin Name: Closed Site
-	Plugin URI: http://github.com/JackSiro/Closed-Site-Plugin
+	Plugin URI: https://github.com/JackSiro/Q2A-Closed-Site-Plugin/
 	Plugin Description: Allows for for locking the site to only logged users only. Premium plugin coming out soon
 	Plugin Version: 1.5
 	Plugin Date: 2014-09-20
