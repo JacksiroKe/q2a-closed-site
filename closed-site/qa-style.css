@@ -11,292 +11,481 @@
 	Plugin Update Check URI:
 
 */
- body{	
-	background:url(nairobi.jpg) no-repeat fixed center 100% !important ;
-	margin: 0;
-    padding: 0;
-	text-align:left;
- }
- 
- .qa_page_wrap{
-	clear:both;
-	width:100%;
-	margin:0 auto;
-	color:#fff ;
-}
 
-   
-.qa_main {	
-	float:left;
+/*------[ base css ]------*/
+html {
 	font-size: 16px;
-	margin:10px;
-    padding: 10px;
-	color:#fff;
-	width:500px;
+	line-height: 1.5;
 }
 
-.qa_left{
-	float:right;
-	font-size: 20px;
-    margin: 10px;
-    padding: 10px;
-	width:270px;
-	background: rgba(255,255,255,0.5);
-	
+:-moz-placeholder {
+	color: #bdc3c7;
+	font-style: italic;
 }
 
-.qa_loginpage{
-	text-align:left;
-	max-width: 1000px;
-    min-height: 750px;
+::-webkit-input-placeholder {
+	color: #bdc3c7;
+	font-style: italic;
 }
 
-.qa-logo {
-	float:left;
-	margin-bottom:16px;
-	font-size:30px;
-	font-weight:bold;
-	color:#fff!important;	
+* {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
-.qa_footer{
-	clear:both;
-	background:transparent;
-}
-
-.qa_nav_main_link {
-	color:#666 !important;
-	display:block;
-	font-weight:700;
-	padding:7px 9px;
-	-moz-transition:all ease-in-out 0.5s;
-	-webkit-transition:all ease-in-out 0.5s;
-	-o-transition:all ease-in-out 0.5s;
-	-ms-transition:all ease-in-out 0.5s;
-	transition:all ease-in-out 0.5s;	
-}
-.qa_nav_main_link:hover,.qa_nav_main_selected {
-	text-decoration:none;
-	color:#006699 !important;
-	-moz-transition:all ease-in-out 0.2s;
-	-webkit-transition:all ease-in-out 0.2s;
-	-o-transition:all ease-in-out 0.2s;
-	-ms-transition:all ease-in-out 0.2s;
-	transition:all ease-in-out 0.2s;	
-}
-
-
-/*-- main + sub navigation css --*/
-.qa-nav-main {
-	display:none;
-}
-.qa_nav_main_list {
-	font-size:16px;
-	list-style:none;
-	margin:0;
-	padding:0;background: #eaeaea;
-	font-family:Arial,Helvetica,sans-serif;
-}
-#qa-register, #qa-login {
-	background: #0099cc; /* Old browsers */
-	background: -webkit-linear-gradient(top, #0099cc 0%, #0179b5 100%); /* Chrome10+,Safari5.1+ */
-	background: linear-gradient(to bottom, #0099cc 0%, #0179b5 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0099cc', endColorstr='#0179b5',GradientType=0); /* IE6-8 */
-	border: 1px solid #004f76;
-	color: #fff;
-	font-weight: bold;
-	padding: 3px 10px;
-	border-radius: 3px;
-}
-
-#qa-register:hover, #qa-register:focus,
-#qa-login:hover, #qa-login:focus {
-	background: #1ca0cc; /* Old browsers */
-	background: -webkit-linear-gradient(top, #1ca0cc 0%, #0099cc 100%); /* Chrome10+,Safari5.1+ */
-	background: linear-gradient(to bottom, #1ca0cc 0%, #0099cc 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1ca0cc', endColorstr='#0099cc',GradientType=0); /* IE6-8 */
-}
-
-/*---[ Begin: login bar css ]---*/
-#qa_login_bar {
-	background: #ddd;
-	position:fixed;
+html, body {
 	margin: 0;
-	height: 30px;
-	border-bottom: 1px solid #aaa;
-	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+	padding: 0;
 }
 
-#qa_login_group {
-	width: 100%;
-	height:50px;
-	margin: 0 auto;
-	padding: 2px 10px;
-	text-align: left;
-	font-size:20px;
-	background: #2c3e50;
+body {
+	position: relative;
+	font-family: "Ubuntu", "Helvetica", "Arial", "FreeSans", sans-serif;
+	color: #34495e;
+}
+body.body-overflow {
+	overflow-y: hidden !important;
+	position: fixed;
 }
 
-#qa_loginform {
+.qa-error, .qa-warning, .qa-notice {
+	margin-bottom: 5px;
+	padding: 10px;
+	color: #fff;
+}
+.qa-error a, .qa-warning a, .qa-notice a {
+	color: #fff;
+	border-bottom: 1px dotted #fff;
+}
+.qa-error a:hover, .qa-warning a:hover, .qa-notice a:hover {
+	color: #fff;
+	border-bottom: 0;
+}
+
+.qa-error {
+	background: #e74c3c;
+	position: relative;
+	z-index: 999;
+}
+
+.qa-warning {
+	background: #f1c40f;
+	position: relative;
+	z-index: 999;
+}
+
+.qa-notice {
+	margin-bottom: 0;
+	background: #d35400;
+	text-align: center;
+	font-size: 1em;
+	line-height: 1.5em;
+}
+
+
+.qa-notice-close-button {
+	margin: 0;
 	float: right;
-}
-
-#qa_userid, #qa_password {
-	width: 165px;
-	margin-right: 5px;
-	padding: 4px 5px;
-}
-
-#qa_userid, #qa_password {
-	float: left;
-}
-
-#qa_loginform #qa_rememberbox {
-	float: left;
-	padding: 7px 5px 1px;
-}
-
-#qa_loginform #qa_rememberme {
-	margin: 0 5px 0 0;
-	display: inline;
-}
-
-#qa_loginform #qa_remember {
-	display: inline;
-	line-height: 14px;
-	color:#fff;
-}
-
-#qa_login, #qa_register {
-	height: 25px;
-	margin: 0 0 0 5px;
-	
-}
-
-#qa_forgot_password {
-	display: inline-block;
-}
-
-#qa_forgot_password a, #qa_forgot_password a:visited {
 	width: 24px;
 	height: 24px;
-	line-height: 25px;
-	font-size: 16px;
+	display: block;
+	background-color: transparent;
+	background-image: url('images/icons/close-black.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	text-indent: -9999px;
+	border: none;
+	outline: none;
+	-webkit-transition: background-image 0.5s;
+	transition: background-image 0.5s;
+}
+.qa-notice-close-button:hover, .qa-notice-close-button:focus {
+	background-color: transparent; /* override generic input styles */
+	background-image: url('images/icons/close-red.png');
+	outline: none;
+	border: none;
+}
+/* qa-closed-left */
+
+.qa-closed-left{
+	
+}
+
+.closed-page-title{
+	font-size:30px;
+}
+.closed-page-content{
+	padding: 10px;
+	text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+	font-size:20px;
+	color: #fff;
+}
+.closed-page-content-l{
+	font-size:20px;
+	color: #000;
+}
+/* qa-closed-right */
+
+.qa-closed-right {
+	word-wrap: break-word;
+	background: rgba(255,255,255,0.7);
+	padding: 20px;
+	color: #000;
+}
+
+.qa-closed-right a {
+	color: #000;
+	border-bottom: 1px dotted #fff;
 	font-weight: bold;
-	text-align: center;
-	background: #ccc;
-	color: #777;
-	display: inline-block;
-	box-shadow: 1px 1px 0 0 #eee;
-	border-top: 1px solid #aaa;
-	border-left: 1px solid #aaa;
 }
-
-#qa-forgot-password a:hover, #qa-forgot-password a:active {
+.qa-closed-right a:hover {
+	color: #fff;
+	border-bottom: 0;
 	text-decoration: none;
-	background: #aa0000;
-	color: #fff;
+	text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+	border-bottom: 1px solid #fff;
 }
 
-#qa_register{
-
-
+.qa-closed-right-items{
+	margin:10px;
+}
+.qa-closed-right-items input[type="text"], .qa-closed-right-items input[type="password"] {
+	width: 100%;
+	color: #000;
+	font-size:20px;
 }
 
-#qa_login {
-	background-color: #3498db;
-	margin:5px;
-	padding-left:20px;
-	padding-right:20px;
-	height:100%;
-	color: #fff;
-	border-color: #3498db;
+@media (min-width: 980px) {
+	.qam-body-fixed {
+		padding-top: 80px;
+	}
 }
-#qa_login:hover {
-	background-color: #2980b9;
-	border-color: #2980b9;
+
+#qam-topbar {
+	font-size: 0.875em;
+}
+#qam-topbar.fixed {
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: auto;
+	z-index: 99990;
+}
+
+.qam-account-items-wrapper {
+	float: right;
+	position: relative;
+}
+
+#qam-account-toggle {
+	display: block;
 	cursor: pointer;
+	min-width: 60px;
+	min-height: 55px;
+	max-width: 80px;
+	padding: 2px;
+	background-color: #34495e;
+	text-align: center;
+}
+#qam-account-toggle:hover {
+	background: #445f7a;
+}
+#qam-account-toggle .qam-auth-key {
+	font-size: 28px;
+}
+#qam-account-toggle .qam-auth-key:before {
+	display: inline-block;
 }
 
-#qa_fullname_r,#qa_password_r,#qa_userid_r,#qa_email_r{
-	width:100%;
-
+.qam-account-items {
+	background-color: #34495e;
+	display: none;
+	position: absolute;
+	right: 0;
+	top: 60px;
+	width: 230px;
+	padding: 10px;
+	z-index: 1100;
+}
+.qam-account-items input[type="text"], .qam-account-items input[type="password"] {
+	width: 100%;
 }
 
-.qa_form{
-	width:97%;
-	background: #fff;
-	border: 1px solid #ddd;
-	font-size: 20px;
+.qam-account-handle {
+	font-size: 12px;
+	line-height: 1.8;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.qam-account-items .qa-form-tall-button-login {
+	width: 100%;
+}
+
+.qa-nav-user {
+	white-space: nowrap;
+	margin: -10px;
+}
+
+.qa-nav-user-facebook-login, .qa-nav-user-register {
+	padding: 0 !important;
+}
+
+.qa-nav-user-register .qa-nav-user-link {
+	background-color: #27ae60;
+	width: 100%;
+	display: block;
+	color: #fff;
+	margin: 2px 0 0;
+	padding: 5px !important;
+	text-align: center;
 	line-height: 20px;
-	margin: 0;
-	padding: 7px 10px;
-	box-shadow: inset 0 1px 2px #eee;
-	border:1px solid #CCC;
-	margin:0 0 5px;
-	border-radius:5px;
+	border: 1px solid #27ae60;
 }
-.qa_rchoice{
-	font-size: 20px;
-	line-height: 20px;
-	margin: 0;
-	padding: 7px 10px;
-	margin:0 0 5px;
+.qa-nav-user-register .qa-nav-user-link:hover {
+	background-color: #2ecc71;
+	border-color: #2ecc71;
+	text-decoration: none;
 }
 
-@media (max-width: 790px){
-	body{
-		background:#eee;
-		color:#000 ;
+/*------[ qa content parts ]------*/
+
+.qa-closed-left, .qa-main-wrapper {
+	*zoom: 1;
+}
+
+.qa-body-wrapper {
+	margin: 10px auto;
+	padding: 0 10px;
+	*zoom: 1;
+}
+
+@media (min-width: 980px) {
+	.qa-closed-left {
+		width: 48%;
+		float: left;
 	}
+	.qam-topbar, .qa-main-wrapper {
+		width: 100%;
+	}
+}
+@media (min-width: 1044px) {
+	.qa-body-wrapper {
+		width: 1024px;
+	}
+}
+
+@media (min-width: 980px) {
+	.qa-template-user [class^="qa-part-form"], .qa-template-user .qa-part-message-list {
+		width: 49.8%;
+	}
+	.qa-template-user [class^="qa-part-form"], .qa-template-user .qa-part-message-list {
+		float: right;
+		clear: right;
+	}
+	.qa-template-user .qa-part-form-profile {
+		float: left;
+	}
+}
+
+/*------[ sidebar ]------*/
+
+@media (min-width: 980px) {
+	.qa-closed-right {
+		width: 48%;
+		padding: 0px;
+		float: right;
+		*zoom: 1;
+	}
+}
+
+@media (max-width: 979px) {
 	
-	.qa-logo {
-		width:100%;
-	}
-	#qa_login_bar{
-		background:transparent;
-		width:90%;
-		height:0px;
-		margin:0px;
-		color:#000 ;
-	}
-	
-	.qa_bodywrap{
-		width:90%;
-		margin:10px auto;
-		color:#000 ;
-		padding:10px;
-	}
-	
-	#qa_login_group{
-		width:100%;clear:both;
-		text-align:left;
-		
-	}
-	
-	#qa-userid,#qa-password{
-		width:95%;
-		float:left;
+	.qa-closed-right {
+		width: 100%;
+		height: 100%;
+		top: 0;
+		overflow-y: auto;
+		z-index: 99999;
 		background: #fff;
-		font-size: 20px;
-		line-height: 20px;
-		padding: 7px 10px;
-		border:1px solid #CCC;
-		margin:10px;
-		border-radius:5px;
+		transition: all 0.15s ease;
+		box-shadow: 0 0 0 0 transparent;
 	}
-
-	#qa-loginform{width:100%;float:left;
+	.qa-closed-right.open {
+		right: 0 !important;
+		transition: all 0.15s ease;
+		box-shadow: -5px 0 15px 0 rgba(0, 0, 0, 0.5);
 	}
-	
-	#qa-rememberbox #qa_login{
-		width:100%;
-		text-align:left;
-	}
-	
-	#qa_login{
-		width:100%;
-		margin:10px;
+	.qa-closed-left {
+		display:none;
 	}
 }
 
+
+.stick {
+	top: 10px !important;
+	transition: all 0.15s ease;
+}
+
+.qa-closed-right h1, .qa-closed-right h2, .qa-closed-right h3, .qa-closed-right h4, .qa-closed-right h5, .qa-closed-right h6 {
+	margin-top: 0px;
+}
+.qa-closed-right .qa-widget-side {
+	padding: 20px;
+	margin-bottom: 5px;
+	background: #fff;
+}
+
+
+.qa-activity-count {
+	margin: -20px;
+	text-align: center;
+	overflow: hidden;
+	*zoom: 1;
+}
+
+.qa-activity-count-item {
+	width: 50%;
+	margin: 0;
+	padding-bottom: 10px;
+	color: #fff;
+	float: left;
+	text-transform: uppercase;
+	position: relative;
+}
+.qa-activity-count-item:before {
+	font-family: "fontello";
+	display: inline-block;
+	font-size: 32px;
+	text-align: center;
+	margin-bottom: 5px;
+	position: absolute;
+	top: 5px;
+	left: 10px;
+	opacity: 0.2;
+}
+.qa-activity-count-item:hover {
+	cursor: help;
+}
+.qa-activity-count-item:hover:before {
+	opacity: 1;
+	-webkit-animation: shake 0.25s;
+	-moz-animation: shake 0.25s;
+	-o-animation: shake 0.25s;
+	animation: shake 0.25s;
+}
+.qa-activity-count-item:nth-child(1) {
+	background: #1abc9c;
+}
+.qa-activity-count-item:nth-child(1):before {
+	content: '\e801';
+}
+.qa-activity-count-item:nth-child(2) {
+	background: #2ecc71;
+}
+.qa-activity-count-item:nth-child(2):before {
+	content: '\e802';
+}
+.qa-activity-count-item:nth-child(3) {
+	background: #f1c40f;
+}
+.qa-activity-count-item:nth-child(3):before {
+	content: '\e800';
+}
+.qa-activity-count-item:nth-child(4) {
+	background: #e67e22;
+}
+.qa-activity-count-item:nth-child(4):before {
+	content: '\e809';
+}
+
+.qa-activity-count-data {
+	padding: 10px 10px 0 10px;
+	font-size: 2em;
+	line-height: 1.5em;
+	display: block;
+}
+
+.qa-related-q-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.qa-related-q-item a {
+	display: block;
+	padding: 5px 0;
+	border-bottom: 1px solid #ecf0f1;
+}
+.qa-related-q-item:first-child a {
+	padding-top: 0;
+}
+.qa-related-q-item:last-child a {
+	padding-bottom: 0;
+	border-bottom: 0;
+}
+
+.qa-nav-cat {
+	padding: 20px;
+	margin-bottom: 5px;
+	background: #fff;
+}
+
+.qa-nav-cat-list {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.qa-nav-cat-list .qa-nav-cat-list {
+	margin-left: 20px;
+}
+
+.qa-nav-cat-item {
+	padding: 2px 0;
+	display: block;
+	border-bottom: 1px solid #ecf0f1;
+}
+.qa-nav-cat-item:last-child {
+	border-bottom: none;
+}
+
+.qa-nav-cat-link.qa-nav-cat-favorited {
+	position: relative;
+	padding-left: 20px;
+}
+.qa-nav-cat-link.qa-nav-cat-favorited:before {
+	position: absolute;
+	top: 2px;
+	left: 0;
+	width: 17px;
+	height: 100%;
+	display: block;
+	content: url('images/favorite-icon-15x15.png');
+}
+
+.qa-nav-cat-note {
+	color: #7f8c8d;
+	float: right;
+	font-size: 12px;
+}
+
+.qa-feed {
+	font-size: 13px;
+	padding: 20px;
+	margin-bottom: 5px;
+	background: #fff;
+}
+
+.qa-feed-link {
+	line-height: 32px;
+}
+.qa-feed-link:before {
+	font-family: "fontello";
+	font-size: 20px;
+	content: '\e81c';
+	display: inline-block;
+	float: left;
+	margin-right: 8px;
+}
