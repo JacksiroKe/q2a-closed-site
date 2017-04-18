@@ -1,8 +1,8 @@
 <?php
 /*
 	Plugin Name: Closed Site
-	Plugin URI: http://github.com/JackSiro/Closed-Site-Plugin
-	Plugin Description: Allows for for locking the site to only logged users only. Premium plugin coming out soon
+	Plugin URI: https://github.com/JackSiro/Q2A-Closed-Site-Plugin/
+	Plugin Description: Allows for for locking the site to only logged users only.
 	Plugin Version: 1.5
 	Plugin Date: 2014-09-20
 	Plugin Author: Jackson Siro
@@ -66,7 +66,7 @@ class qa_html_theme_layer extends qa_html_theme_base {
 				if (typeof qa_oldonload == \'function\')
 					qa_oldonload();
 
-				if (qa_ckeditor_closed_site_page_content = CKEDITOR.replace(\'closed_site_page_content\', qa_wysiwyg_editor_config)) { qa_ckeditor_closed_site_page_content.setData(document.getElementById(\'closed_site_page_content_ckeditor_data\').value); document.getElementById(\'closed_site_page_content_ckeditor_ok\').value = 1; }
+				if (qa_ckeditor_closed_site_page_content_field = CKEDITOR.replace(\'closed_site_page_content_field\', qa_wysiwyg_editor_config)) { qa_ckeditor_closed_site_page_content_field.setData(document.getElementById(\'closed_site_page_content_field_ckeditor_data\').value); document.getElementById(\'closed_site_page_content_field_ckeditor_ok\').value = 1; }
 			};
 		</script>'
 			);
@@ -92,10 +92,37 @@ class qa_html_theme_layer extends qa_html_theme_base {
 			$this->content['title']= qa_lang_html('admin/admin_title').' - '.qa_lang('qa_closed_lang/closed_site_title');
 			
 			$saved = qa_clicked('closed_site_save');
+			$reset = qa_clicked('closed_site_reset');
 			if ($saved) {
-				qa_opt('closed_site_allow', (bool)qa_post_text('closed_site_allow'));
-				qa_opt('closed_site_page_title', qa_post_text('closed_site_page_title'));
-				qa_opt('closed_site_page_content', qa_post_text('closed_site_page_content'));
+				qa_opt('closed_site_allow', (bool)qa_post_text('closed_site_allow_field'));
+				qa_opt('closed_site_page_title', qa_post_text('closed_site_page_title_field'));
+				qa_opt('closed_site_page_content', qa_post_text('closed_site_page_content_field'));
+				qa_opt('closed_site_login_title', qa_post_text('closed_site_login_title_field'));
+				qa_opt('closed_site_login_content', qa_post_text('closed_site_login_content_field'));
+				qa_opt('closed_site_background_allow', (bool)qa_post_text('closed_site_background_allow_field'));
+				qa_opt('closed_site_background_url', qa_post_text('closed_site_background_url_field'));
+				qa_opt('closed_site_html_top', qa_post_text('closed_site_html_top_field'));
+				qa_opt('closed_site_html_left1', qa_post_text('closed_site_html_left1_field'));
+				qa_opt('closed_site_html_left2', qa_post_text('closed_site_html_left2_field'));
+				qa_opt('closed_site_html_right1', qa_post_text('closed_site_html_right1_field'));
+				qa_opt('closed_site_html_right2', qa_post_text('closed_site_html_right2_field'));
+				qa_opt('closed_site_html_bottom', qa_post_text('closed_site_html_bottom_field'));
+			}
+			
+			if ($reset) {
+				qa_opt('closed_site_allow', '');
+				qa_opt('closed_site_page_title', '');
+				qa_opt('closed_site_page_content', '');
+				qa_opt('closed_site_login_title', '');
+				qa_opt('closed_site_login_content', '');
+				qa_opt('closed_site_background_allow', '');
+				qa_opt('closed_site_background_url', '');
+				qa_opt('closed_site_html_top', '');
+				qa_opt('closed_site_html_left1', '');
+				qa_opt('closed_site_html_left2', '');
+				qa_opt('closed_site_html_right1', '');
+				qa_opt('closed_site_html_right2', '');
+				qa_opt('closed_site_html_bottom', '');
 			}
 			
 			$options= array(
@@ -108,39 +135,111 @@ class qa_html_theme_layer extends qa_html_theme_base {
 					'type' => 'checkbox',
 					'label' => qa_lang('qa_closed_lang/closed_site_allow'),
 					'value' => qa_opt('closed_site_allow'),
-					'tags' => 'name="closed_site_allow" id="closed_site_allow"',				
+					'tags' => 'name="closed_site_allow_field" id="closed_site_allow_field"',				
 				),
 			
 				array(
 					'type' => 'input',
 					'label' => qa_lang('qa_closed_lang/closed_site_page_title'),
 					'value' => qa_opt('closed_site_page_title'),
-					'tags' => 'name="closed_site_page_title" id="closed_site_page_title"',				
+					'tags' => 'name="closed_site_page_title_field" id="closed_site_page_title_field"',				
 				),
 				array(
 					'type' => 'textarea',
 					'label' => qa_lang('qa_closed_lang/closed_site_page_content'),
 					'value' => qa_opt('closed_site_page_content'),
-					'rows' => 4,
-					'tags' => 'name="closed_site_page_content" id="closed_site_page_content"',				
+					'rows' => 7,
+					'tags' => 'name="closed_site_page_content_field" id="closed_site_page_content_field"',				
 				),
 			
+				array(
+					'type' => 'input',
+					'label' => qa_lang('qa_closed_lang/closed_site_login_title'),
+					'value' => qa_opt('closed_site_login_title'),
+					'tags' => 'name="closed_site_login_title_field" id="closed_site_login_title_field"',				
+				),
+				
+				array(
+					'type' => 'input',
+					'label' => qa_lang('qa_closed_lang/closed_site_login_content'),
+					'value' => qa_opt('closed_site_login_content'),
+					'tags' => 'name="closed_site_login_content_field" id="closed_site_login_content_field"',				
+				),
+				
+				array(
+					'type' => 'checkbox',
+					'label' => qa_lang('qa_closed_lang/closed_site_background_allow'),
+					'value' => qa_opt('closed_site_background_allow'),
+					'tags' => 'name="closed_site_allow_field" id="closed_sitebackground__allow_field"',				
+				),
+			
+				array(
+					'type' => 'input',
+					'label' => qa_lang('qa_closed_lang/closed_site_background_url'),
+					'value' => qa_opt('closed_site_background_url'),
+					'tags' => 'name="closed_site_background_url_field" id="closed_site_background_url_field"',				
+				),
+				array(
+					'type' => 'textarea',
+					'label' => qa_lang('qa_closed_lang/closed_site_html_top'),
+					'value' => qa_opt('closed_site_html_top'),
+					'rows' => 7,
+					'tags' => 'name="closed_site_html_top_field" id="closed_site_html_top_field"',				
+				),
+				array(
+					'type' => 'textarea',
+					'label' => qa_lang('qa_closed_lang/closed_site_html_left1'),
+					'value' => qa_opt('closed_site_html_left1'),
+					'rows' => 7,
+					'tags' => 'name="closed_site_html_left1_field" id="closed_site_html_left1_field"',				
+				),
+				array(
+					'type' => 'textarea',
+					'label' => qa_lang('qa_closed_lang/closed_site_html_left2'),
+					'value' => qa_opt('closed_site_html_left2'),
+					'rows' => 7,
+					'tags' => 'name="closed_site_html_left2_field" id="closed_site_html_left2_field"',				
+				),
+				
+				array(
+					'type' => 'textarea',
+					'label' => qa_lang('qa_closed_lang/closed_site_html_right1'),
+					'value' => qa_opt('closed_site_html_right1'),
+					'rows' => 7,
+					'tags' => 'name="closed_site_html_right1_field" id="closed_site_html_right1_field"',				
+				),
+				array(
+					'type' => 'textarea',
+					'label' => qa_lang('qa_closed_lang/closed_site_html_right2'),
+					'value' => qa_opt('closed_site_html_right2'),
+					'rows' => 7,
+					'tags' => 'name="closed_site_html_right2_field" id="closed_site_html_right2_field"',				
+				),
+				array(
+					'type' => 'textarea',
+					'label' => qa_lang('qa_closed_lang/closed_site_html_bottom'),
+					'value' => qa_opt('closed_site_html_bottom'),
+					'rows' => 7,
+					'tags' => 'name="closed_site_html_bottom_field" id="closed_site_html_bottom_field"',				
+				),
+				
 			),
 				
 				'buttons' => array(
 					array(
-						'label' => 'Save Changes',
+						'label' => qa_lang('qa_closed_lang/save_changes'),
 						'tags' => 'name="closed_site_save"',
 					),
 					
 					array(
-						'label' => 'Reset to Defaults',
-						'tags' =>   'name="qa_closedsite_reset"',
+						'label' => qa_lang('qa_closed_lang/reset_changes'),
+						'tags' =>   'name="closed_site_reset" onclick="return confirm('.qa_js(qa_lang_html('admin/reset_options_confirm')).');"',
 					),
 					
 				),
 			);
 			$this->content['form']=$options;
+			$this->content['custom']= '<p>If you think this plugin is great and helps you on your site please donate some $5 to $30 to my paypal account: <a href="mailto:smataweb@gmail.com">smataweb@gmail.com</a></p>';
 		}
 		qa_html_theme_base::doctype();
 	}
