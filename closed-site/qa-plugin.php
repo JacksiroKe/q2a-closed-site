@@ -8,7 +8,7 @@
 	Plugin Author: Jackson Siro
 	Plugin Author URI: http://github.com/JackSiro
 	Plugin License: GPLv3
-	Plugin Minimum Question2Answer Version: 1.7
+	Plugin Minimum Question2Answer Version: 1.5
 	Plugin Update Check URI: https://github.com/JackSiro/Q2A-Closed-Site-Plugin/master/closed-site/qa-plugin.php
 
 */
