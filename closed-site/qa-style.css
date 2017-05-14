@@ -257,9 +257,21 @@ body.body-overflow {
 }
 
 .qa-body-wrapper {
-	margin: 10px auto;
-	padding: 0 10px;
+	margin: 100px auto;
+	padding: 10px;
 	*zoom: 1;
+}
+.qa-loginbox-centered{ 
+	margin: 100px auto;	
+	width: 400px;
+	background: #fff;
+}
+
+.qa-body-wrapper  input[type="text"],
+.qa-body-wrapper input[type="password"],
+.qa-body-wrapper  input[type="checkbox"],
+.qa-body-wrapper  input[type="submit"]{
+	margin: 10px auto;
 }
 
 @media (min-width: 980px) {

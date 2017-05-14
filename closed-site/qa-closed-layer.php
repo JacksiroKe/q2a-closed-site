@@ -40,8 +40,7 @@ require_once QA_INCLUDE_DIR.'qa-theme-base.php';
 		
 		
 		function html()
-		{
-			
+		{			
 			$this->output('<html>');		
 			$this->head();			
 			$this->output('<body>');
@@ -67,9 +66,8 @@ require_once QA_INCLUDE_DIR.'qa-theme-base.php';
 			$class = $this->fixed_topbar ? ' fixed' : '';
 			$this->output('<div id="qam-topbar" class="clearfix' . $class . '">');
 			$this->output('<div class="qam-main-nav-wrapper clearfix">');
-			$this->nav_user_search();
-			$this->logo();
-			$this->output('</div>');
+			//$this->nav_user_search();
+			//$this->logo();
 		}
 		
 		function qa_closed_page($login)
@@ -79,49 +77,58 @@ require_once QA_INCLUDE_DIR.'qa-theme-base.php';
 			$this->qa_closed_header();
 
 			$this->output('<div class="qa-body-wrapper">', '');
-			$this->output(qa_opt('closed_site_html_top'), '<!-- Html Top -->');
+			if (qa_opt('closed_site_html_top_allow')) 
+				$this->output(qa_opt('closed_site_html_top'), '<!-- Html Top -->');
 			
-			$this->output('<div class="qa-main-wrapper">', '');
+			$class = "";
+			if (!qa_opt('closed_site_centered_login')) {
+				$this->output('<div class="qa-main-wrapper">', '');
+				$this->qa_closed_left();
+				$this->output('<div class="qa-closed-right">');
+			} else {
+				$this->output('<div class="qa-loginbox-centered">', '');
+				$this->output('<div>');
+			}
 			
-			$this->qa_closed_right();
-			$this->output('<div class="qa-closed-right">');
-			
-			$this->qa_closed_left($login);
+			$this->qa_closed_right($login, $class);
 			$this->output('</div>', '');
 			
 			$this->output('</div>');
-			$this->output(qa_opt('closed_site_html_bottom'), '<!-- Html Bottom -->');
+			if (qa_opt('closed_site_html_bottom_allow')) 
+				$this->output(qa_opt('closed_site_html_bottom'), '<!-- Html Bottom -->');
 
 			$this->output('</div>');
 
 			$this->footer();
-			$this->body_suffix();
+			//$this->body_suffix();
 		}
 		
-		function qa_closed_right()
+		function qa_closed_left()
 		{
 			$page_title = qa_opt('closed_site_page_title') ? qa_opt('closed_site_page_title') : qa_lang('qa_closed_lang/default_page_title');
 			$page_content = qa_opt('closed_site_page_content') ? qa_opt('closed_site_page_content') : qa_lang('qa_closed_lang/default_page_content');
 			
 			$this->output('<div class="qa-closed-left">');
 			$this->output('<h1 class="closed-page-title">'.$page_title.'</h1>');
-			
-			$this->output(qa_opt('closed_site_html_left1'), '<!-- Html 1 Left -->');
+			if (qa_opt('closed_site_html_left1_allow')) 
+				$this->output(qa_opt('closed_site_html_left1'), '<!-- Html 1 Left -->');
 			$this->output('<div class="closed-page-content">'.$page_content.'</div>');
-			$this->output(qa_opt('closed_site_html_left2'), '<!-- Html 2 Left -->');
+			if (qa_opt('closed_site_html_left2_allow')) 
+				$this->output(qa_opt('closed_site_html_left2'), '<!-- Html 2 Left -->');
 			
 			$this->output('</div>');
 		}
 		
-		function qa_closed_left($login)
-		{
+		function qa_closed_right($login, $class)
+		{			
 			$login_title = qa_opt('closed-site-login-title') ? qa_opt('closed_site_login_title') : qa_lang('qa_closed_lang/default_login_title');
 			$login_content = qa_opt('closed-site-login-content') ? qa_opt('closed_site_login_content') : qa_lang('qa_closed_lang/default_login_content');
 			$this->output('<div class="qa-closed-right-items">');
 			$this->output('<span class="closed-page-title">'.$login_title.'</span><br><div class="closed_page_content_l">'.$login_content.'</div>');
 			
 			if (isset($this->content['error'])) $this->error($this->content['error']);
-			$this->output(qa_opt('closed_site_html_right1'), '<!-- Html 1 Right -->');
+			if (qa_opt('closed_site_html_right1_allow')) 
+				$this->output(qa_opt('closed_site_html_right1'), '<!-- Html 1 Right -->');
 			$this->output(
 				'<form action="' . $login['url'] . '" method="post">',
 					'<input type="text" name="emailhandle" dir="auto" placeholder="' . trim(qa_lang_html(qa_opt('allow_login_email_only') ? 'users/email_label' : 'users/email_handle_label'), ':') . '"/>',
@@ -134,8 +141,8 @@ require_once QA_INCLUDE_DIR.'qa-theme-base.php';
 			);
 			$this->output('<a class="qa-form-tall-button qa-form-tall-button-login" href="register">Register</a>');
 			$this->output('<br><br>');
-			
-			$this->output(qa_opt('closed_site_html_right2'), '<!-- Html 2 Right -->');			
+			if (qa_opt('closed_site_html_right2_allow')) 
+				$this->output(qa_opt('closed_site_html_right2'), '<!-- Html 2 Right -->');			
 			$this->output('</div>');
 		}
 		
