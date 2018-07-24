@@ -1,4 +1,5 @@
-# Q2A-Closed-Site-Plugin
+# Q2A CLOSED SITE PLUGIN
+========
 Closed Site Plugin is a plugin to allow for for locking the site to only logged users only.
 
 FEATURES OF THE CLOSED SITE PLUGIN
