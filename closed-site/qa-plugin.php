@@ -2,7 +2,7 @@
 /*
 	Plugin Name: Closed Site
 	Plugin URI: https://github.com/JackSiro/Q2A-Closed-Site-Plugin/
-	Plugin Description: Allows for for locking the site to only logged users only.
+	Plugin Description: Allows a Q2A site to be locked to allow in registered users only, include support for adverts.
 	Plugin Version: 1.5
 	Plugin Date: 2014-09-20
 	Plugin Author: Jackson Siro
