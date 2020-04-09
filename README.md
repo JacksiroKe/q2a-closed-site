@@ -2,7 +2,7 @@
 Closed Site Plugin is a plugin to allow for for locking the site to only logged users only.
 
 ## Installing Instructions
-If you have never installed my Q2A plugins before please consider checking the [Installation Guide](https://github.com/JacksiroKe/q2a-closed-site/master/INSTALLING.md)
+If you have never installed my Q2A plugins before please consider checking the [Installation Guide](https://github.com/JacksiroKe/q2a-closed-site/blob/master/INSTALLING.md)
 
 ## Features
 1. Show background image which you can change easily
