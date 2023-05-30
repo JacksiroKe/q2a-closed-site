@@ -139,8 +139,10 @@ require_once QA_INCLUDE_DIR.'qa-theme-base.php';
 					'<input type="submit" value="' . $login['label'] . '" class="qa-form-tall-button qa-form-tall-button-login" name="dologin"/>',
 				'</form><br>'
 			);
-			$this->output('<a class="qa-form-tall-button qa-form-tall-button-login" href="register">Register</a>');
-			$this->output('<br><br>');
+			if (!qa_opt('suspend_register_users')) {
+				$this->output('<a class="qa-form-tall-button qa-form-tall-button-login" href="register">Register</a>');
+				$this->output('<br><br>');
+			}
 			if (qa_opt('closed_site_html_right2_allow')) 
 				$this->output(qa_opt('closed_site_html_right2'), '<!-- Html 2 Right -->');			
 			$this->output('</div>');
