@@ -17,6 +17,7 @@ require_once QA_INCLUDE_DIR.'qa-theme-base.php';
 	class qa_html_theme_layer extends qa_html_theme_base 
 	{	
 		private $fixed_topbar = false;
+		private $path_exclusions = array('register', 'forgot', 'reset');
 			
 		function head_css() {
 			qa_html_theme_base::head_css();
@@ -49,7 +50,7 @@ require_once QA_INCLUDE_DIR.'qa-theme-base.php';
 				if (!qa_is_logged_in()) {
 					if (isset($this->content['navigation']['user']['login']) && !QA_FINAL_EXTERNAL_USERS) {
 						$login=@$this->content['navigation']['user']['login'];
-						if (qa_request_part(0) == 'register') $this->body();					
+						if (in_array(qa_request_part(0), $this->path_exclusions)) $this->body();					
 						else $this->qa_closed_page($login);
 						unset($this->content['navigation']['user']['login']);
 					}
@@ -137,6 +138,7 @@ require_once QA_INCLUDE_DIR.'qa-theme-base.php';
 					'<label for="qam-rememberme">' . qa_lang_html('users/remember') . '</label></div>',
 					'<input type="hidden" name="code" value="' . qa_html(qa_get_form_security_code('login')) . '"/>',
 					'<input type="submit" value="' . $login['label'] . '" class="qa-form-tall-button qa-form-tall-button-login" name="dologin"/>',
+					'<a class="qa-form-tall-button qa-form-tall-button-login" href="forgot">Forgot Password</a>',
 				'</form><br>'
 			);
 			$this->output('<a class="qa-form-tall-button qa-form-tall-button-login" href="register">Register</a>');
